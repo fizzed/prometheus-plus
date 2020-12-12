@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.fizzed</groupId>
+    <artifactId>ninja-prometheus-module</artifactId>
+    <name>ninja-prometheus-module</name>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>com.fizzed</groupId>
+        <artifactId>ninja-prometheus</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    
+    <properties>
+        <main.java.package>com.fizzed.prometheus.ninja</main.java.package>
+    </properties>
+    
+    <dependencies>
+        
+        <dependency>
+            <groupId>io.prometheus</groupId>
+            <artifactId>simpleclient_common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.prometheus</groupId>
+            <artifactId>simpleclient_dropwizard</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.prometheus</groupId>
+            <artifactId>simpleclient_hotspot</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.ninjaframework</groupId>
+            <artifactId>ninja-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- testing -->
+        
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>java-hamcrest</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+    </dependencies>
+</project>

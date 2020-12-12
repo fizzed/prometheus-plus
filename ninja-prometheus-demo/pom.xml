@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.fizzed</groupId>
+    <artifactId>ninja-prometheus-demo</artifactId>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>com.fizzed</groupId>
+        <artifactId>ninja-prometheus</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <!-- ninja will run during the "test" phase -->
+        <profile>
+            <id>rocker-demo-run</id>
+            <build>
+                <plugins>
+                    <!-- Allows you to run Ninja via the SuperDevMode. -->
+                    <!-- run "mvn ninja:run" on the command line for the best -->
+                    <!-- development experience. -->
+                    <plugin>
+                        <groupId>org.ninjaframework</groupId>
+                        <artifactId>ninja-maven-plugin</artifactId>
+                        <version>${ninja.version}</version>
+                        <configuration>
+                            <useDefaultExcludes>true</useDefaultExcludes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>ninja-run</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        
+        <dependency>
+            <groupId>org.ninjaframework</groupId>
+            <artifactId>ninja-standalone</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.fizzed</groupId>
+            <artifactId>ninja-prometheus-module</artifactId>
+        </dependency>
+        
+    </dependencies>
+</project>
