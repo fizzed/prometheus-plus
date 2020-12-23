@@ -3,7 +3,7 @@
     <groupId>com.fizzed</groupId>
     <artifactId>ninja-prometheus</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
 
     <properties>
         <java.version>1.8</java.version>
@@ -21,7 +21,7 @@
     <scm>
         <url>https://github.com/fizzed/ninja-prometheus.git</url>
         <connection>scm:git:git@github.com:fizzed/ninja-prometheus.git</connection>
-      <tag>HEAD</tag>
+      <tag>v0.0.2</tag>
   </scm>
 
     <modules>
