@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
 import ninja.lifecycle.Start;
+import static org.apache.commons.lang3.StringUtils.containsIgnoreCase;
 
 @Singleton
 public class PrometheusExporter {
@@ -22,7 +23,14 @@ public class PrometheusExporter {
     @Start
     public void start() {
         final CollectorRegistry registry = this.registryProvider.get();
-        DefaultExports.register(registry);
+        // this is actually only allowed to happen once per JVM
+        try {
+            DefaultExports.register(registry);
+        } catch (IllegalArgumentException e) {
+            if (!containsIgnoreCase(e.getMessage(), "Collector already registered that provides")) {
+                throw e;
+            }
+        }
     }
     
 }
