@@ -17,8 +17,6 @@ package com.fizzed.prometheus.ninja;
 
 import io.prometheus.client.CollectorRegistry;
 import io.prometheus.client.Summary;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 /**
@@ -34,17 +32,10 @@ public class CollectorRegistryHelperTest {
             .help("help")
             .create();
         
-        boolean registered;
-        
-        registered = CollectorRegistryHelper.registerIfAbsent(CollectorRegistry.defaultRegistry, collector);
-        
-        assertThat(registered, is(true));
-        
+        CollectorRegistryHelper.registerIfAbsent(CollectorRegistry.defaultRegistry, collector);
+
         // 2nd time should fail to register, but no exception...
-        registered = CollectorRegistryHelper.registerIfAbsent(CollectorRegistry.defaultRegistry, collector);
-        
-        assertThat(registered, is(false));
-        
+        CollectorRegistryHelper.registerIfAbsent(CollectorRegistry.defaultRegistry, collector);
     }
     
 }

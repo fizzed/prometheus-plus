@@ -20,21 +20,21 @@ import io.prometheus.client.CollectorRegistry;
 
 public class CollectorRegistryHelper {
  
-    static public boolean registerIfAbsent(
+    static public <T extends Collector> T registerIfAbsent(
             CollectorRegistry registry,
-            Collector collector) {
+            T collector) {
         
         try {
             registry.register(collector);
-            return true;
         }
         catch (IllegalArgumentException iae) {
             // Collector already registered that provides name: jet_crashed_windows_total
-            if (iae.getMessage().contains("already registered")) {
-                return false;
+            if (!iae.getMessage().contains("already registered")) {
+                throw iae;
             }
-            throw iae;
         }
+        
+        return collector;
     }
     
 }
