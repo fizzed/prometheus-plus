@@ -1,7 +1,7 @@
 Ninja Framework + Prometheus by Fizzed
 ============================================
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.fizzed/ninja-prometheus/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.fizzed/ninja-prometheus)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.fizzed/prometheus-plus/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.fizzed/prometheus-plus)
 
 [Fizzed, Inc.](http://fizzed.com) (Follow on Twitter: [@fizzed_inc](http://twitter.com/fizzed_inc))
 
@@ -12,13 +12,13 @@ Integration of [Prometheus](https://prometheus.io) with the
 
 ## Setup
 
-Add the ninja-prometheus-module dependency to your Maven pom.xml
+Add the prometheus-ninja-module dependency to your Maven pom.xml
 
 ```xml
 <dependency>
     <groupId>com.fizzed</groupId>
-    <artifactId>ninja-prometheus-module</artifactId>
-    <version>0.0.1</version>
+    <artifactId>prometheus-ninja-module</artifactId>
+    <version>0.0.5</version>
 </dependency>
 ```
 
